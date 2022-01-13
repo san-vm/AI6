@@ -13,7 +13,7 @@ xcopy /E /y Lib\site-packages\pvporcupine AI\pvporcupine\
 xcopy /E /y Lib\site-packages\cv2\data AI\cv2\data\
 xcopy /E /y model AI\model\
 xcopy /E /y zImg AI\zImg\
-cp ffmpeg.exe AI\
+copy ffmpeg.exe AI\
 
 
 rmdir /S /Q dist
