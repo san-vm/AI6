@@ -189,8 +189,8 @@ def mainf():
 	hostname = socket.gethostname()
 	IPAddr = socket.gethostbyname_ex(hostname)[2][-1]
 	# os.system(f"start http://{IPAddr}:5000")
-	# app.run(host=IPAddr)
-	app.run(host=IPAddr, debug=True, use_reloader=False)
+	# app.run(host=IPAddr, debug=True, use_reloader=False)
+	app.run(host=IPAddr)
 
 
 if __name__ == '__main__':

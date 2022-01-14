@@ -1,10 +1,11 @@
-from pyautogui import hotkey, press, write
+from pyautogui import hotkey, press, write, keyDown, keyUp, click
 import pyautogui as pyauto
 import os
 import pyttsx3
 import datetime
 import getpass
 import facerec
+import subprocess
 from AIUI import dispMsg
 
 uname = getpass.getuser()
@@ -14,6 +15,8 @@ engine.setProperty("volume", 1)
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
+holdingKeys = False
+
 
 def say(text):
 	global engine
@@ -21,13 +24,44 @@ def say(text):
 	engine.runAndWait()
 
 
+def holdingFunction(temp):
+	global holdingKeys
+	holdingKeys = []
+	for i in temp:
+		if i == "control":
+			i = "ctrl"
+		elif i in ["alternate", "alternative"]:
+			i = "alt"
+		else:
+			continue
+		holdingKeys.append(i)
+
+	for i in holdingKeys:
+		keyDown(i)
+
+
+def releaseKeys():
+	global holdingKeys
+	if holdingKeys:
+		for i in holdingKeys:
+			keyUp(i)
+		holdingKeys = False
+
+
 def handleCmd(Text: str):
+	global holdingKeys
 	# Custom Commands
-	if Text == "open explorer":
-		os.system("explorer")
-	elif Text == "open chrome":
+	if Text in ["open explorer", "explorer"]:
+		subprocess.Popen("explorer")
+	elif Text in ["open notepad", "notepad"]:
+		subprocess.Popen("notepad")
+	elif Text in ["open music", "music", "open spotify", "spotify"]:
+		subprocess.Popen("spotify.exe")
+	elif Text in ["open chrome", "chrome"]:
 		os.system(' '.join([r'"C:\Program Files\Google\Chrome\Application\chrome.exe"',
-						   "--incognito", "--start-maximized"]))
+							"--incognito", "--start-maximized"]))
+	elif Text in ["open task manager", "task manager"]:
+		os.system('taskmgr')
 	elif Text == "open utilities":
 		hotkey('alt', '0')
 	elif Text in ["can you see me", "open camera"]:
@@ -43,7 +77,14 @@ def handleCmd(Text: str):
 			hotkey("win", "down")
 			hotkey("win", "down")
 		else:
-			hotkey("win", "d")
+
+
+
+
+
+
+			
+			hotkey("win", "m")
 	elif Text in ["switch window", "such window", "switch windows", "such windows"]:
 		hotkey('alt', 'tab')
 	elif Text in ["shut down", "power off", "power down"]:
@@ -56,8 +97,12 @@ def handleCmd(Text: str):
 		press("sleep")
 
 	# Keyboard
+	elif Text in ["mouse click", "click mouse", "press mouse button"]:
+		click()
 	elif Text in ["press start", "click start"]:
 		press("win")
+	elif Text in ["press escape", "click escape"]:
+		press("esc")
 	elif Text in ["press next", "press next track", "click next"]:
 		press("nexttrack")
 	elif Text in ["press previous", "press previous track", "click previous"]:
@@ -72,15 +117,24 @@ def handleCmd(Text: str):
 		press("volumedown")
 	elif Text in ["press options", "options"]:
 		press("option")
+	elif Text in ["release keys", "release the hold", "release hold"]:
+		releaseKeys()
+	elif not Text.find("hold keys") or not Text.find("hold the keys"):
+		temp = Text.split()
+		i = temp[1] == "the"
+		holdingFunction(temp[1 + i:])
+	elif not Text.find("hot key"):
+		keys = Text.split()[1:]
+		hotkey(*keys)
 
-	elif "click" in Text or "press" in Text:
-		key = Text.split()[1].lower()
-		press(key)
-	elif "type" in Text:
-		splits = Text.split()
-		if splits[0].lower() == "type":
-			write(Text[5:])
-	elif "select all" in Text:
+	elif not Text.find("click") or not Text.find("press"):
+		key = Text.split()[1:]
+		for i in key:
+			press(i)
+		releaseKeys()
+	elif not Text.find("type"):
+		write(Text[5:])
+	elif not Text.find("select all"):
 		hotkey('ctrl', 'a')
 	elif Text in ["sure all windows", "show all windows", "so all windows"]:
 		hotkey("win", "tab")

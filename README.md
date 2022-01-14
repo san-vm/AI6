@@ -40,8 +40,8 @@ Some Examples: *(If using App, hold the phone close for better clarity audio)
 
 <h2>Download:</h2>
 
-- Verion 1 [AI.zip](https://promodders.com/apps/AI.zip)
-- Verion 1 [AIapp.apk](https://promodders.com/apps/AIapp.apk)
+- Verion 1 [**AI.zip**](https://promodders.com/apps/AI.zip)
+- Verion 1 [**AIapp.apk**](https://promodders.com/apps/AIapp.apk)
 
 
 <h2>Build From Source:</h2>
@@ -51,15 +51,16 @@ You can find the "model" folder and "ffmpeg.exe" in the "AI.zip" in the download
 <br>
 <h2>ToDo:</h2>
 
-- Implement JWT authentication in the Flask.
-
-- Need a React Native Developer.
+- Implement **JWT** auth in Flask.
+- Implement better **Python NLP Intent Identification** than if/else.
+- Implement **encrypted communication**.
+- Better **React Native** designs.
 
 <hr>
 
-- 🤝 I’m looking for help with [AI6](https://github.com/san-vm/AI6)
+- 🤝 I’m looking for help with [**AI6**](https://github.com/san-vm/AI6)
 
-- 📄 Know about [ProModders](https://promodders.com)
+- 📄 Know about [**ProModders**](https://promodders.com)
 
 - 📫 How to reach me **sanjaykumar.vm@gmail.com**
 

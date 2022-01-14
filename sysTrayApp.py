@@ -24,7 +24,7 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 		self.setToolTip(f'ProModders - AIONE')
 		menu = QtWidgets.QMenu(parent)
 
-		open_app = menu.addAction("Ideas")
+		open_app = menu.addAction("Notepad")
 		open_app.triggered.connect(self.open_notepad)
 		open_app.setIcon(QtGui.QIcon("./zImg/icon.png"))
 
@@ -45,10 +45,10 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 			Thread(target=handleVoice).start()
 
 	def open_notepad(self):
-		subprocess.Popen(['notepad', r'C:\short\ideas.txt'])
+		subprocess.Popen(['notepad'])
 
 	def open_calc(self):
-		subprocess.run(['calc'])
+		subprocess.Popen(['calc'])
 
 
 def mainApp():
