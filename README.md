@@ -40,8 +40,7 @@ Some Examples: *(If using App, hold the phone close for better clarity audio)
 
 <h2>Download:</h2>
 
-- Verion 1 [**AI.zip**](https://promodders.com/apps/AI.zip)
-- Verion 1 [**AIapp.apk**](https://promodders.com/apps/AIapp.apk)
+- [**AI6 App and Zip V1**](https://github.com/san-vm/AI6/releases)
 
 
 <h2>Build From Source:</h2>
