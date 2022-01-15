@@ -77,13 +77,6 @@ def handleCmd(Text: str):
 			hotkey("win", "down")
 			hotkey("win", "down")
 		else:
-
-
-
-
-
-
-			
 			hotkey("win", "m")
 	elif Text in ["switch window", "such window", "switch windows", "such windows"]:
 		hotkey('alt', 'tab')

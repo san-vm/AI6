@@ -2,7 +2,7 @@
 <h3 align="center">A powerfull offline voice activated assistant.!</h3>
 
 <p><img align="center" src="https://promodders.com/wp-content/uploads/2020/09/circle-favi.png" height="50" width="50">
-<strong> AI6</strong>, developed by <strong><a href="https://promodders.com" target="blank">ProModders</a></strong> is an open source Voice Assistant "Widget" which comes with advance system and navigation capabilities. You can also connect to the AI6 service through the app on your Phone connected over the same network.</p>
+<strong> AI6</strong>, developed by <strong><a href="https://promodders.com" target="blank">ProModders</a></strong> is an open source Voice Assistant "Widget" which comes with advance system and navigation capabilities. You can also connect to the AI6 service through the app on your Phone connected over the same network. • Uniquely crafted to maximize usefulness and preserve data privacy, processing text, audio and images locally with no need to send the data out.</p>
 
 <img src="https://raw.githubusercontent.com/san-vm/AI6/master/zImg/AI.png" width=720>
 
